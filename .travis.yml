@@ -3,21 +3,21 @@ services:
   - docker
 
 before_install:
-  - docker build -t dcgator27/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t dcgator8/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true dcgator27/react-test npm test
+  - docker run -e CI=true dcgator8/react-test npm test
 
 after_success:
-  - docker build -t dcgator27/multi-client ./client
-  - docker build -t dcgator27/multi-nginx ./nginx
-  - docker build -t dcgator27/multi-server ./server
-  - docker build -t dcgator27/multi-worker ./worker
+  - docker build -t dcgator8/multi-client ./client
+  - docker build -t dcgator8/multi-nginx ./nginx
+  - docker build -t dcgator8/multi-server ./server
+  - docker build -t dcgator8/multi-worker ./worker
 
   # Log in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push images to Docker Hub
-  - docker push dcgator27/multi-client
-  - docker push dcgator27/multi-nginx
-  - docker push dcgator27/multi-server
-  - docker push dcgator27/multi-worker
+  - docker push dcgator8/multi-client
+  - docker push dcgator8/multi-nginx
+  - docker push dcgator8/multi-server
+  - docker push dcgator8/multi-worker
