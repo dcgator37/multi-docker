@@ -14,7 +14,7 @@ services:
       - PGUSER=$PGUSER
       - PGHOST=$PGHOST
       - PGDATABASE=$PGDATABASE
-      - PGPASSWORD="$PGPASSWORD"
+      - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
     image: "dcgator8/multi-worker"
