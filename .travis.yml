@@ -21,3 +21,15 @@ after_success:
   - docker push dcgator8/multi-nginx
   - docker push dcgator8/multi-server
   - docker push dcgator8/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-2-444083008588
+  bucket_path: multi-docker
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
