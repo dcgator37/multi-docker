@@ -13,4 +13,11 @@ after_success:
   - docker build -t dcgator27/multi-nginx ./nginx
   - docker build -t dcgator27/multi-server ./server
   - docker build -t dcgator27/multi-worker ./worker
-  
+
+  # Log in to the Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push images to Docker Hub
+  - docker push dcgator27/multi-client
+  - docker push dcgator27/multi-nginx
+  - docker push dcgator27/multi-server
+  - docker push dcgator27/multi-worker
